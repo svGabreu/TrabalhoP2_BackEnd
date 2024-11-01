@@ -5,7 +5,6 @@ class Categoria(models.Model):
     descricao = models.CharField(max_length=100,null=False,blank=False)
     created_at = models.DateTimeField(auto_now_add=True,null=False,blank=False)
 
-
 class Produto(models.Model):
     nome = models.CharField(max_length=100,null=False,blank=False)
     descricao = models.CharField(max_length=100,null=False,blank=False)
