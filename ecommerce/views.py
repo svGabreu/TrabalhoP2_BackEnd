@@ -13,22 +13,24 @@ def ecommerce_list(request):
 
 class CriarCategoria(CreateView):
     model = Categoria
-    fields = ["nome_categoria","descricao_categoria"]
-    success_url = reverse_lazy("ecommerce_list")
+    fields = ["nome","descricao"]
+    success_url = reverse_lazy("criar_categoria")
 
 class CriarProduto(CreateView):
     model = Produto
-    fields = ["nome_produto","descricao_produto","preco","categoria","created_at"]
-    success_url = reverse_lazy("ecommerce_list")
+    fields = ["nome","descricao","preco","categoria","created_at"]
+    success_url = reverse_lazy("criar_produto")
 
 class UpdateProduto(UpdateView):
     model = Produto
-    fields = ["nome_produto","descricao_produto","preco","categoria"]
-    success_url = reverse_lazy("ecommerce_list")
+    fields = ["nome","descricao","preco","categoria"]
+    success_url = reverse_lazy("update_produto")
 
 class ProdutoListView(ListView):
     model = Produto
+    success_url = reverse_lazy("produto_list")
+
 
 class ProdutoDeleteView(DeleteView):
     model = Produto
-    success_url = reverse_lazy("ecommerce_list")
+    success_url = reverse_lazy("produto_list")

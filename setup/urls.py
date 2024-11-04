@@ -6,10 +6,10 @@ from ecommerce.views import CriarCategoria, CriarProduto, UpdateProduto, Produto
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", ecommerce_list),
-    path("",ProdutoListView.as_view()),
-    path("create",CriarCategoria.as_view()),
-    path("create",CriarProduto.as_view()),
-    path("update",UpdateProduto.as_view()),
-    path("delete",ProdutoDeleteView.as_view()),
+    path("",ProdutoListView.as_view(), name="produto_list"),
+    path("create",CriarCategoria.as_view(), name="criar_categoria"),
+    path("create",CriarProduto.as_view(),name="criar_produto"),
+    path("update/<int:pk>",UpdateProduto.as_view(),name="update_produto"),
+    path("delete",ProdutoDeleteView.as_view(),name="produto_delete"),
 
 ]
