@@ -13,44 +13,44 @@
         </div>
     </nav>  
     
-    <main class="container">
-        <h1>Lista de Produtos</h1>
+<main class="container">
+    <h1>Lista de Produtos</h1>
 
-        {% if ecommerce_list %}
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Descrição</th>
-                            <th scope="col">Preço</th>
-                            <th scope="col">Categoria</th>
-                            <th scope="col">Criado em</th>
-                            <th scope="col">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for produto in ecommerce_list %}
-                            <tr>
-                                <th scope="row">{{Produto.id}}</th>
-                                <td>{{Produto.nome}}</td>
-                                <td>{{Produto.descricao}}</td>
-                                <td>{{Produto.preco}}</td>
-                                <td>{{Produto.categoria}}</td>
-                                <td>{{Produto.created_at}}</td>
-                                <td>
-                                    <a href="{% url 'update_produto'%}" class"btn btn-primary btn-sm">Editar</a>
-                                    <a href="{% url 'produto_delete' %}" class"btn btn-danger btn-sm">Excluir</a>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-        {% else %}
-            <p> Não há produtos cadastrados</p>
-        {% endif %}
+    {% if ecommerce_list %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Criado em</th>
+                <th scope="col">Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for ecommerce in ecommerce_list %}
+                    <tr>
+                        <th scope="row">{{Produto.id}}</th>
+                        <td>{{Produto.nome}}</td>
+                        <td>{{Produto.descricao}}</td>
+                        <td>{{Produto.preco}}</td>
+                        <td>{{Produto.categoria}}</td>
+                        <td>{{Produto.created_at}}</td>
+                        <td>
+                            <a href="{% url 'update_produto'%}" class"btn btn-primary btn-sm">Editar</a>
+                            <a href="{% url 'produto_delete' %}" class"btn btn-danger btn-sm">Excluir</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p> Não há produtos cadastrados</p>
+    {% endif %}
 
-        <a href="{% url 'criar_produto'%}" class=btn btn-primary> Novo Produto </a>
+    <a href="{% url 'criar_produto'%}" class=btn btn-primary> Novo Produto </a>
 
     </main>
 

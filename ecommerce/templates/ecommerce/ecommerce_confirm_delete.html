@@ -1,0 +1,11 @@
+
+    <h1>Excluír Tarefa</h1>
+
+    <p>Tem certeza que deseja excluír a tarefa ?</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Excluír</button>
+        <a href="{% url 'ecommerce_list' %}" class="btn btn-primary">Cancelar</a>
+    </form>
+{% endblock content %}
